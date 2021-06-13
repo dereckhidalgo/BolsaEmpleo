@@ -37,7 +37,7 @@ namespace ApiTrailers
         {
             app.UseCors(options =>
             {
-                options.WithOrigins("https://localhost:44375");
+                options.WithOrigins("localhost:44375");
                 options.AllowAnyMethod();
                 options.AllowAnyHeader();
             });
