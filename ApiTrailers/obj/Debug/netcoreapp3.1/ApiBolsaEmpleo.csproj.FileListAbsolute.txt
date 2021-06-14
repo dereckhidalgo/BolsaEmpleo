@@ -295,7 +295,6 @@ C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\bin\Debug\ne
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.csprojAssemblyReference.cache
-C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.AssemblyInfoInputs.cache
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.AssemblyInfo.cs
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.RazorTargetAssemblyInfo.cache
@@ -304,3 +303,4 @@ C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\ne
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\staticwebassets\ApiBolsaEmpleo.StaticWebAssets.xml
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.dll
 C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.pdb
+C:\Users\Adeury09\source\repos\BolsaEmpleos\BolsaEmpleo\ApiTrailers\obj\Debug\netcoreapp3.1\ApiBolsaEmpleo.MvcApplicationPartsAssemblyInfo.cache

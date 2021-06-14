@@ -24,7 +24,7 @@ function Tables() {
   const ToggleModalEditar =()=>{
     setModalEditar(!modalEditar);
   }
-  //---------------------------------------Mostrar Peliculas
+  //---------------------------------------Mostrar 
   const GetRol=async()=>{
     await axios.get(URL)
     .then(response=>{
@@ -146,7 +146,7 @@ function Tables() {
       <tbody className="BodyTable text-center">
         {data.map(dato=>(
           <tr key={dato.id}>
-            <td>dato.id</td>
+            <td>{dato.id}</td>
             <td>{dato.nombre}</td>
           </tr>
         ))}

@@ -1,5 +1,6 @@
 ﻿using ApiBolsaEmpleo.Contexto;
 using ApiBolsaEmpleo.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
