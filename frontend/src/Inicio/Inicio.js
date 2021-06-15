@@ -3,6 +3,8 @@ import { Navbar, Nav, Form, FormControl, Button,Modal,ModalBody, ModalFooter } f
 import Portada from '../imgs/Portada.jpg';
 import Logo from '../imgs/Logo.png';
 import axios from 'axios';
+import Footer from '../Components/Footer';
+
 function Inicio() {
     const URL = "https://localhost:44375/api/Vacante";
 
@@ -54,12 +56,12 @@ function Inicio() {
                 <Nav.Link href="#features">Vacantes</Nav.Link>
             </Nav>
             <Nav style={{marginLeft:"50%"}}>
-                <Button className="bg-dark">Login</Button>
-                <Button className="bg-dark">Sign Up</Button>
+                <Button className="bg-dark" variant="outline-info">Login</Button>
+                <Button className="bg-dark" variant="outline-info">Sign Up</Button>
             </Nav>
             <Form className="inline" style={{display:'flex', marginLeft:"1%"}}>
                 <FormControl type="text" placeholder="Buscar..." style={{marginRight:'2%', border:'2px solid #19A7AE'}} />
-                <Button variant="outline-info">Buscar</Button>
+                <Button variant="outline-primary">Buscar</Button>
             </Form>
         </Navbar>
         <div >
@@ -71,33 +73,86 @@ function Inicio() {
                 <h1 style={{color:"white"}}>TU <i style={{color:'#19A7AE'}}>FUTURO</i> EMPIEZA AQUI</h1>
             </div>
         </div>
-        <h1 style={{margin:'5% 30%'}}>VACANTES DISPONIBLES</h1>
+        <h1 style={{margin:'5% 32%'}}>VACANTES DISPONIBLES</h1>
         <div style={{width:'80%', margin:'5% 10%'}}>
-        <table className="table table-bordered table-striped table-hover">
-            <thead className="HeaderTable text-center">
+        <hr/>
+            <h4 style={{marginLeft:'42%',fontFamily:'monospace',color:'#19A7AE'}}>FULL-TIME</h4>
+        <hr/>
+        <table className="table table-bordered table-hover">
+            <thead className="HeaderTable text-center table-secondary">
                 <tr>
                     <th>Compañía</th>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                    <th>Posicion</th>
-                    <th>Ubicacion</th>
+                    <th>Ubicación</th>
+                    <th>Posición</th>
                     <th>Acción</th>
                 </tr>
             </thead>
             <tbody className="BodyTable text-center">
                 {data.map(dato=>(
-                <tr key={dato.id}>
-                    <td><img src={dato.urL_LOGO} width="50px" height="50px"/></td>
-                    <td>{dato.compania}</td>
-                    <td>{dato.tipo===1? "Full Time":dato.tipo===2?"Part-time":"Freelance"}</td>
-                    <td>{dato.posicion}</td>
-                    <td>{dato.ubicacion}</td>   
-                    <td><button className="btn btn-success">Postular</button></td>
-                </tr>
+                    dato.tipo===1
+                    ?
+                    <tr>
+                        <td>{dato.compania}</td>
+                        <td>{dato.ubicacion}</td>
+                        <td>{dato.posicion}</td>
+                        <td><button className="btn btn-info">Ver más...</button> {""}</td>
+                    </tr>
+                    :""
                 ))}
             </tbody>
         </table>
-        
+        <hr style={{marginTop:'7%'}}/>
+            <h4 style={{marginLeft:'42%',fontFamily:'monospace',color:'#19A7AE'}}>PART-TIME</h4>
+        <hr/>
+        <table className="table table-bordered table-hover">
+            <thead className="HeaderTable text-center table-secondary">
+                <tr>
+                    <th>Compañía</th>
+                    <th>Ubicación</th>
+                    <th>Posición</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody className="BodyTable text-center">
+                {data.map(dato=>(
+                    dato.tipo===2
+                    ?
+                    <tr>
+                        <td>{dato.compania}</td>
+                        <td>{dato.ubicacion}</td>
+                        <td>{dato.posicion}</td>
+                        <td><button className="btn btn-info">Ver más...</button> {""}</td>
+                    </tr>
+                    :""
+                ))}
+            </tbody>
+        </table>
+        <hr style={{marginTop:'7%'}}/>
+            <h4 style={{marginLeft:'42%', fontFamily:'monospace',color:'#19A7AE'}}>Freelance</h4>
+        <hr/>
+        <table className="table table-bordered table-hover">
+            <thead className="HeaderTable text-center table-secondary">
+                <tr>
+                    <th>Compañía</th>
+                    <th>Ubicación</th>
+                    <th>Posición</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody className="BodyTable text-center">
+                {data.map(dato=>(
+                    dato.tipo===3
+                    ?
+                    <tr>
+                        <td>{dato.compania}</td>
+                        <td>{dato.ubicacion}</td>
+                        <td>{dato.posicion}</td>
+                        <td><button className="btn btn-info">Ver más...</button> {""}</td>
+                    </tr>
+                    :""
+                ))}
+            </tbody>
+        </table>
     <Modal isOpen={modalInsertar}>
       <ModalBody>
         <div className="form-group">
@@ -112,6 +167,7 @@ function Inicio() {
       </ModalFooter>
     </Modal>
         </div>
+        <Footer/>
       </>
     );
   }
