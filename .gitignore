@@ -5,3 +5,4 @@
 *.cache
 *.json
 ApiTrailers/bin/Debug/netcoreapp3.1/ApiBolsaEmpleo.dll
+ApiTrailers/obj/Debug/netcoreapp3.1/ApiBolsaEmpleo.csprojAssemblyReference.cache
