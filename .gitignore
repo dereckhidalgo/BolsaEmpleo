@@ -11,3 +11,13 @@ ApiTrailers/obj/Debug/netcoreapp3.1/ApiBolsaEmpleo.csprojAssemblyReference.cache
 .vs/ApiBolsaEmpleo/v16/.suo
 .vs/ApiBolsaEmpleo/v16/.suo
 .vs/ApiBolsaEmpleo/v16/.suo
+.vs/ApiBolsaEmpleo/DesignTimeBuild/.dtbcache.v2
+.vs/ApiBolsaEmpleo/DesignTimeBuild/.dtbcache.v2
+*.v2
+.vs/ApiBolsaEmpleo/v16/.suo
+*.dll
+*.pdb
+*.cs
+*.cache
+*.dll
+*.pdb

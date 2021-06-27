@@ -165,7 +165,6 @@ function Inicio() {
       </ModalFooter>
     </Modal>
         </div>
-        <Footer/>
       </>
     );
   }
