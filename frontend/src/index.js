@@ -10,6 +10,7 @@ import App from './App';
 import Admin from './admin/admin';
 import Vacantes from './admin/vacantes';
 import Login from './admin/Login';
+import Postular from './admin/postular';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +18,10 @@ ReactDOM.render(
         <Switch>
           <Route path="/inicio" component={Inicio}/>
           <Route path="/admin/" component={Vacantes}/>
+          <Route path="/Postular" component={Postular}/>
+
           <Route path="/login" component={Login}/>
+
           <Redirect from="/" to="/inicio" />
         </Switch>
       </BrowserRouter>
