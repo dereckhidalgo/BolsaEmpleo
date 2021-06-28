@@ -2,6 +2,8 @@ import React , { useState, useEffect}from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
+import swal from 'sweetalert';
+
 
 function ListaUsuario() {
     const URL = "https://localhost:44375/api/Usuarios";
@@ -13,7 +15,13 @@ function ListaUsuario() {
         nombre:''
     })
    
-    
+    const AlertaEliminado=()=>{
+        swal({
+            title:"Usuario Eliminado!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
     const controlModalEliminar=()=>{
         setModalEliminar(!modalEliminar)
     }
@@ -31,6 +39,7 @@ function ListaUsuario() {
         await axios.delete(URL+"/"+gestorseleccionado.id)
         .then(response =>{
            setData(data.filter(gestor=> gestor.id!==response.data));
+           AlertaEliminado();
             controlModalEliminar();
         }).catch(error=>{
             console.log(error)
