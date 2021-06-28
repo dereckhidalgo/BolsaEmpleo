@@ -2,6 +2,8 @@ import React , { useState, useEffect, Component}from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
+import swal from 'sweetalert';
+
 
 
 function ListaVacantes() {
@@ -12,7 +14,27 @@ function ListaVacantes() {
     const [modalEditar, setModalEditar]=useState(false);
     const [modalEliminar, setModalEliminar]=useState(false);
 
-   
+    const AlertaRegistrado=()=>{
+        swal({
+            title:"Vacante Registrada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
+    const AlertaEditada=()=>{
+        swal({
+            title:"Vacante Editada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
+    const AlertaEliminado=()=>{
+        swal({
+            title:"Vacante Eliminada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
     const [gestorseleccionado, setGestorseleccionado] = useState({
         id:'',
         compania:'',
@@ -62,6 +84,7 @@ function ListaVacantes() {
         await axios.post(URL, gestorseleccionado)
         .then(response =>{
             setData(data.concat(response.data));
+            AlertaRegistrado();
             controlModalInsertar();
         }).catch(error=>{
             console.log(error)
@@ -87,6 +110,7 @@ function ListaVacantes() {
 
                 }
             })
+            AlertaEditada();
             controlModalEditar();
         }).catch(error=>{
             console.log(error)
@@ -97,6 +121,7 @@ function ListaVacantes() {
         await axios.delete(URL+"/"+gestorseleccionado.id)
         .then(response =>{
            setData(data.filter(gestor=> gestor.id!==response.data));
+           AlertaEliminado();
             controlModalEliminar();
         }).catch(error=>{
             console.log(error)
