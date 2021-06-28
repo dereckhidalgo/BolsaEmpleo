@@ -48,22 +48,17 @@ function ListaUsuario() {
     return (
       <>
       <div className="create">
-          <br/>
-          
-          <br></br>
-          <table className="table table-bordered">
+          <br/><center>
+          <table className="table table-bordered" style={{width:"80%"}}>
             <thead>
                 <tr>
                     <th> ID</th>
                     <th> Nombre</th>
                     <th> Apellido</th>
-                    <th> Fecha de Nacimiento</th>
                     <th> Direccion</th>
                     <th> Numero de Telefono</th>
                     <th> Biografia</th>
                     <th> Correo</th>
-                    <th> Contra</th>
-                    <th> Perfil</th>
                     <th> Acciones</th>
 
                 </tr>
@@ -74,21 +69,18 @@ function ListaUsuario() {
                       <td>{g.id}</td> 
                       <td>{g.nombre}</td>
                       <td>{g.apellido}</td>
-                      <td>{g.fechA_NACIMIENTO}</td>
                       <td>{g.direccion}</td>
                       <td>{g.numerO_TEL}</td>
                       <td>{g.biografia}</td>
                       <td>{g.correo}</td>
-                      <td>{g.contra}</td>
-                      <td>{g.urL_IMG_PERFIL}</td>
                       <td>
-                          <button className="btn btn-danger"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
+                          <button className="btn btn-dark"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
                       </td>
                    </tr> 
                 ))}
             </tbody>
           </table>
-
+          </center>
           <Modal isOpen={modalEliminar}>
               
               <ModalBody>
