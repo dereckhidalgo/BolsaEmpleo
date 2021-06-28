@@ -1,6 +1,9 @@
 import React , { useState, useEffect}from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
+import {Link} from 'react-router-dom';
 import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
 
 function ListaPostulaciones() {
@@ -12,8 +15,6 @@ function ListaPostulaciones() {
         nombre:''
     })
    
-    
-
     const peticionGet= async()=>{
         await axios.get(URL)
         .then(response =>{
@@ -28,11 +29,14 @@ function ListaPostulaciones() {
     },[])
     return (
       <>
+      <Navbar/>
       <div className="create">
           <br/>
-          
-          <br></br>
-          <table className="table table-bordered">
+          <Link to="/admin" style={{margin:"10%"}}>{"<- Volver"}</Link>
+          <br/>
+          <br/>
+          <center>
+          <table className="table table-bordered" style={{width:"80%"}}>
             <thead>
                 <tr>
                     <th> ID</th>
@@ -53,8 +57,9 @@ function ListaPostulaciones() {
                 ))}
             </tbody>
           </table>
-
+          </center>
       </div>
+      <Footer/>
       </>
     );
   }

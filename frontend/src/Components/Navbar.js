@@ -8,11 +8,10 @@ const NavBar = () => {
     <Navbar.Brand href="#home" style={{marginLeft:'1%', marginTop:'-10px'}}><img src={Logo} width="90px" height="70px"/></Navbar.Brand>
     <Nav className="mr-auto">
         <Link to="/inicio"><Nav.Link href="#home">Inicio</Nav.Link></Link>
-        <Nav.Link href="#features">Vacantes</Nav.Link>
+        <Nav.Link href="#Vacantes">Vacantes</Nav.Link>
     </Nav>
     <Nav style={{marginLeft:"50%"}}>
         <Link to="/admin"><Button className="bg-dark" variant="outline-info">Login</Button></Link>
-        <Button className="bg-dark" variant="outline-info">Sign Up</Button>
     </Nav>
     </Navbar>
   );

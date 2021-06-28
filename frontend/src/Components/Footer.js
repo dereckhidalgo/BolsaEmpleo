@@ -5,17 +5,17 @@ const Footer = () => {
         <div className="bg-dark text-white p-4">
             <center>
              Desarrollado en su totalidad por:
-            <div style={{ display:'flex', margin:'2% 35% '}}>
+            <div style={{ display:'flex', margin:'2% 42% '}}>
                 <center>
                 <ul style={{ textDecoration:'none'}}>
-                    <li>Dereck Hidalgo 2019-8762</li>
-                    <li>Jenrry Monegro</li>
-                    <li>Eduardo Acosta</li>
+                    <li>Dereck</li>
+                    <li>Jenrry</li>
+                    <li>Eduardo</li>
                 </ul>
                 </center>
                 <ul>
-                    <li>Pieranyela Carrasco</li>
-                    <li>Jennifer Pilarte</li>
+                    <li>Pieranyela</li>
+                    <li>Jennifer</li>
                     <li>Brian</li>
                 </ul>
             </div>

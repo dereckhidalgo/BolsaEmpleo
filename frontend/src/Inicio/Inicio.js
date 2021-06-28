@@ -129,7 +129,7 @@ function Inicio() {
         <hr/>
             <h4 style={{marginLeft:'42%',fontFamily:'monospace',color:'#19A7AE'}}>FULL-TIME</h4>
         <hr/>
-        <table className="table table-bordered table-hover">
+        <table className="table table-bordered table-hover" id="Vacantes">
             <thead className="HeaderTable text-center table-secondary">
                 <tr>
                     <th>Compañía</th>
