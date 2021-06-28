@@ -11,7 +11,7 @@ const NavBar = () => {
         <Nav.Link href="#Vacantes">Vacantes</Nav.Link>
     </Nav>
     <Nav style={{marginLeft:"50%"}}>
-        <Link to="/admin"><Button className="bg-dark" variant="outline-info">Login</Button></Link>
+        <Link to="/login"><Button className="bg-dark" variant="outline-info">Login</Button></Link>
     </Nav>
     </Navbar>
   );

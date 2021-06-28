@@ -18,8 +18,8 @@ ReactDOM.render(
         <Switch>
           <Route path="/inicio" component={Inicio}/>
           <Route path="/Postular" component={Postular}/>
-          <Route path="/admin/" component={Admin}/>
-          <Route path="/login" component={Login}/>
+          <Route path="/admin/" render={(props) => <Admin {...props} />}/>
+          <Route exact path="/login" component={Login}/>
           <Redirect from="/" to="/inicio" />
         </Switch>
       </BrowserRouter>

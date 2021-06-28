@@ -233,8 +233,8 @@ function Inicio() {
             </div>
         </ModalBody>
       <ModalFooter>
-            <button className="btn btn-primary" onClick={()=>peticionPost()}>Guardar</button> {""}
-             <button className="btn btn-danger" onClick={()=>controlModalPostular()}>Cancelar</button>
+            <button className="btn btn-info" onClick={()=>peticionPost()}>Guardar</button> {""}
+             <button className="btn btn-dark" onClick={()=>controlModalPostular()}>Cancelar</button>
       </ModalFooter>
     </Modal>
 
@@ -242,7 +242,7 @@ function Inicio() {
     <Modal isOpen={modalDetalles} className="modal-lg 3500px">
            <ModalHeader>
                <center>
-                   <h3 style={{marginLeft:'42%',fontFamily:'monospace',color:'#19A7AE'}}> Vacantes Hiden</h3>
+                   <h3 style={{marginLeft:'0%',fontFamily:'monospace',color:'#19A7AE'}}> Vacantes HIRED</h3>
                </center>
            </ModalHeader>
             <ModalBody>
@@ -264,13 +264,6 @@ function Inicio() {
                       <h4>Tipo</h4>
                       
                       <label>{gestorseleccionado && gestorseleccionado.tipo}</label>
-                      </div>
-                      
-                      <br></br>
-                      <div class="form-group col-md-6">
-                      <h4>Url_O</h4>
-                    
-                      <input type="text" className="form-control" name="Url_O"   value ={gestorseleccionado && gestorseleccionado.Url_O}/>
                       </div>
                       <br></br>
                       <div class="form-group col-md-6">
@@ -304,8 +297,8 @@ function Inicio() {
             </ModalBody>
 
             <ModalFooter>
-              <button className="btn btn-primary"onClick={()=>controlModalPostular()} >Postular</button> {""}
-             <button className="btn btn-danger" onClick={()=>controlModalDetalles()}>Cancelar</button>
+              <button className="btn btn-info"onClick={()=>controlModalPostular()} >Postular</button> {""}
+             <button className="btn btn-dark" onClick={()=>controlModalDetalles()}>Cancelar</button>
             </ModalFooter>
     </Modal>
 
