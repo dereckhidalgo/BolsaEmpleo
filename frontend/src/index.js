@@ -10,12 +10,14 @@ import App from './App';
 import Admin from './admin/admin';
 import Vacantes from './admin/vacantes';
 import Login from './admin/Login';
+import Postular from './admin/postular';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
         <Switch>
           <Route path="/inicio" component={Inicio}/>
+          <Route path="/Postular" component={Postular}/>
           <Route path="/admin/" component={Admin}/>
           <Route path="/login" component={Login}/>
           <Redirect from="/" to="/inicio" />
