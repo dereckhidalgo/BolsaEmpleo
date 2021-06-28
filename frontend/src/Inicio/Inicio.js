@@ -10,7 +10,7 @@ import Navbar from '../Components/Navbar';
 function Inicio() {
     const URL = "https://localhost:44375/api/Vacante";
     const URL2 = "https://localhost:44375/api/Postulaciones";
-
+    const URL3 = "https://localhost:44375/api/usuarios"
     const Alerta=()=>{
         swal({
             title:"Solicitud enviada!",
@@ -19,11 +19,13 @@ function Inicio() {
         })
     }
     const [data, setData]=useState([]);
+    const [datos,setDatos]= useState([])
     const [VacanteSeleccionada, setVacanteSeleccionada]=useState({
         id: '',
         compania: '',
         tipo:'',
     });
+    const [nuevo, setNuevo] = useState([]);
     const [modalInsertar,setModalInsertar]=useState(false);
     const [modalEditar,setModalEditar]=useState(false);
     const [modalDetalles, setModalDetalles]=useState(false);
@@ -43,10 +45,10 @@ function Inicio() {
         iD_USUARIO_FK:'',
         iD_VACANTE_FK:'',
         fechA_POSTULACION:''
-
     })
     const seleccionarGestor=(gestorr,caso)=>{
         setGestorseleccionado(gestorr);
+        console.log(gestorseleccionado);
         if(caso==="Detalles"){
             controlModalDetalles();
         }
@@ -73,15 +75,25 @@ function Inicio() {
         await axios.get(URL)
         .then(response=>{
           setData(response.data);
-          console.log(data);
         }).catch(error => {
           console.log(error);   
         })
       }
+      const peticionGet= async()=>{
+        await axios.get(URL3)
+        .then(response =>{
+            setDatos(response.data);
+            console.log(datos)
+        }).catch(error=>{
+            console.log(error)
+        });
+    }
+
       const peticionPost= async()=>{
         gestorseleccionado.iD_USUARIO_FK=parseInt(gestorseleccionado.iD_USUARIO_FK);
+        console.log(gestorseleccionado.iD_USUARIO_FK);
         gestorseleccionado.iD_VACANTE_FK=parseInt(gestorseleccionado.id);
-        delete gestorseleccionado.id;      
+        delete gestorseleccionado.id;
         await axios.post(URL2, gestorseleccionado)
         .then(response =>{
             setData(data.concat(response.data));
@@ -110,6 +122,8 @@ function Inicio() {
 
     useEffect(()=>{
         GetVacante(); 
+        peticionGet();
+        console.log(datos)
       },[])
 
     return (
@@ -217,7 +231,10 @@ function Inicio() {
                       <div class="form-group col-md-6">
                       <label>Usuario</label>
                       <br/>
-                      <input type="text" className="form-control" name="iD_USUARIO_FK" onChange={handleChange}/>
+                      <input type="text" name="iD_USUARIO_FK" className="form-control" onChange={handleChange} />
+                      <h2>
+                      {nuevo}
+                      </h2>
                       </div>
                       <div class="form-group col-md-6">
                       <label>Vacante</label>
