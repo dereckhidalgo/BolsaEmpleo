@@ -114,12 +114,10 @@ function ListaVacantes() {
    
     return (
       <>
-      <div className="create">
+      <div>
+      <center>
+      <div className="create" style={{width:"80%"}}>
           <br/>
-          <center>
-          <button onClick={()=>controlModalInsertar()} className=" btn btn-success">Agregar Vacante</button>
-          </center>
-          <br></br>
           <table className="table table-bordered">
             <thead>
                 <tr>
@@ -127,10 +125,8 @@ function ListaVacantes() {
                     <th> Compania</th>
                     <th> Tipo</th>
                     <th> Logo</th>
-                    <th> URL_O</th>
                     <th> Posicion</th>
                     <th> Ubicacion</th>
-                    <th> Categoria</th>
                     <th> Descripcion</th>
                     <th> Fecha_Publicacion</th>
                     <th>Acciones </th>
@@ -142,24 +138,23 @@ function ListaVacantes() {
                       <td>{g.id}</td> 
                       <td>{g.compania}</td>
                       <td>{g.tipo}</td>
-                      <td>{g.urL_LOGO}</td>
-                      <td>{g.urL_O}</td>
+                      <td><img src={g.urL_LOGO}width="70px" height="70px"/></td>
                       <td>{g.posicion}</td>
                       <td>{g.ubicacion}</td>
-                      <td>{g.iD_CATEGORIA_FK}</td>
                       <td>{g.descripcion}</td>
                       <td>{g.fechA_PUBLICACION}</td>
                       <td>
-                          <button className="btn btn-primary" onClick={()=>seleccionarGestor(g,'Editar')}>Editar</button> {""}
-                          <button className="btn btn-danger"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
-
+                          <button className="btn btn-info" onClick={()=>seleccionarGestor(g,'Editar')}>Editar</button> {""}
+                          <button className="btn btn-dark"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
                       </td>
                    </tr> 
                 ))}
-            </tbody>
+            </tbody> 
           </table>
+          </div>
+          </center>
 
-          
+          <button onClick={()=>controlModalInsertar()} className=" btn btn-light" style={{marginLeft:"10%"}}>Agregar Vacante</button>                    
           <Modal isOpen={modalInsertar} className="modal-lg 3500px">
               <ModalHeader> Agregar Vacante</ModalHeader>
               <ModalBody>
@@ -179,12 +174,6 @@ function ListaVacantes() {
                       <label>Logo</label>
                       <br/>
                       <input type="text" className="form-control" name="urL_LOGO" onChange={handleChange}/>
-                      </div>
-                      <br></br>
-                      <div class="form-group col-md-6">
-                      <label>Url_O</label>
-                      <br/>
-                      <input type="text" className="form-control" name="Url_O" onChange={handleChange}/>
                       </div>
                       <br></br>
                       <div class="form-group col-md-6">
@@ -216,11 +205,11 @@ function ListaVacantes() {
                       <br/>
                       <input type="date" className="form-control" name="fechA_PUBLICACION" onChange={handleChange}/>
                       </div>  
-                  </div>
+                      </div>
               </ModalBody>
               <ModalFooter>
-                <button className="btn btn-primary" onClick={()=>peticionPost()}>Guardar</button> {""}
-                <button className="btn btn-danger" onClick={()=>controlModalInsertar()}>Cancelar</button>
+                <button className="btn btn-info" onClick={()=>peticionPost()}>Guardar</button> {""}
+                <button className="btn btn-dark" onClick={()=>controlModalInsertar()}>Cancelar</button>
               </ModalFooter>
           </Modal>
 
@@ -228,10 +217,6 @@ function ListaVacantes() {
               <ModalHeader> Editar Categoria</ModalHeader>
               <ModalBody>
                   <div className="form-group row">
-                  <center>
-                        <label>ID:</label>
-                      <input type="text" className="form-control" readOnly/>
-                        </center>
                       <div class="form-group col-md-6">
                       <label>Compania</label>
                       <br/>
@@ -250,17 +235,11 @@ function ListaVacantes() {
                       </div>
                       <br></br>
                       <div class="form-group col-md-6">
-                      <label>Url_O</label>
-                      <br/>
-                      <input type="text" className="form-control" name="Url_O" onChange={handleChange}  value ={gestorseleccionado && gestorseleccionado.Url_O}/>
-                      </div>
-                      <br></br>
-                      <div class="form-group col-md-6">
                       <label>Posicion</label>
                       <br/>
                       <input type="text" className="form-control" name="posicion" onChange={handleChange}  value ={gestorseleccionado && gestorseleccionado.posicion}/>
                       </div>
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-7">
                       <label>Categoria</label>
                       <br/>
                       <input type="text" className="form-control" name="iD_CATEGORIA_FK" onChange={handleChange}  value ={gestorseleccionado && gestorseleccionado.iD_CATEGORIA_FK}/>
@@ -287,8 +266,8 @@ function ListaVacantes() {
                   </div>
               </ModalBody>
               <ModalFooter>
-                <button className="btn btn-primary" onClick={()=>peticionPut()}>Editar</button> {""}
-                <button className="btn btn-danger" onClick={()=>controlModalEditar()}>Cancelar</button>
+                <button className="btn btn-info" onClick={()=>peticionPut()}>Editar</button> {""}
+                <button className="btn btn-dark" onClick={()=>controlModalEditar()}>Cancelar</button>
               </ModalFooter>
           </Modal>
 
@@ -298,8 +277,8 @@ function ListaVacantes() {
                   Estas seguro que desea eliminar de la Vacante: {gestorseleccionado && gestorseleccionado.compania} ?
               </ModalBody>
               <ModalFooter>
-                <button className="btn btn-primary"onClick={()=>peticionDelete()} >Si</button> {""}
-                <button className="btn btn-secondary" onClick={()=>controlModalEliminar()} >No</button>
+                <button className="btn btn-info"onClick={()=>peticionDelete()} >Si</button> {""}
+                <button className="btn btn-dark" onClick={()=>controlModalEliminar()} >No</button>
               </ModalFooter>
           </Modal>
 

@@ -93,18 +93,12 @@ function ListaCategoria() {
       <div className="create">
           <br/>
           <center>
-          <button onClick={()=>controlModalInsertar()} className=" btn btn-success">Agregar Categoria</button>
-          </center>
-          
-          <br/>
-          <br></br>
-          <table className="table table-bordered">
+          <table className="table table-bordered" style={{width:"80%"}}>
             <thead>
                 <tr>
                     <th> ID</th>
                     <th> Nombre</th>
                     <th> Acciones</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -113,16 +107,18 @@ function ListaCategoria() {
                       <td>{g.id}</td> 
                       <td>{g.nombre}</td>
                       <td>
-                          <button className="btn btn-primary" onClick={()=>seleccionarGestor(g,'Editar')}>Editar</button> {""}
-                          <button className="btn btn-danger"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
+                          <button className="btn btn-info" onClick={()=>seleccionarGestor(g,'Editar')}>Editar</button> {""}
+                          <button className="btn btn-dark"onClick={()=>seleccionarGestor(g,'Eliminar')}>Eliminar</button>
 
                       </td>
                    </tr> 
                 ))}
             </tbody>
           </table>
-
-          
+          </center>
+          <button onClick={()=>controlModalInsertar()} className=" btn btn-light" style={{marginLeft:"10%"}}>Agregar Categoria</button>
+          <br/>
+          <br/>
           <Modal isOpen={modalInsertar}>
               <ModalHeader> Agregar Categoria</ModalHeader>
               <ModalBody>

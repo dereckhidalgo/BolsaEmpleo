@@ -16,7 +16,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
           <Route path="/inicio" component={Inicio}/>
-          <Route path="/admin/" component={Vacantes}/>
+          <Route path="/admin/" component={Admin}/>
           <Route path="/login" component={Login}/>
           <Redirect from="/" to="/inicio" />
         </Switch>

@@ -1,11 +1,10 @@
 import React,{useEffect,useState} from 'react';
-import { Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
 import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
 import Portada from '../imgs/Portada.jpg';
-import Logo from '../imgs/Logo.png';
 import axios from 'axios';
 import Footer from '../Components/Footer';
 import swal from 'sweetalert';
+import Navbar from '../Components/Navbar';
 
 
 function Inicio() {
@@ -115,21 +114,7 @@ function Inicio() {
 
     return (
       <>
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home" style={{marginLeft:'1%', marginTop:'-10px'}}><img src={Logo} width="90px" height="70px"/></Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="#home">Inicio</Nav.Link>
-                <Nav.Link href="#features">Vacantes</Nav.Link>
-            </Nav>
-            <Nav style={{marginLeft:"50%"}}>
-                <Button className="bg-dark" variant="outline-info">Login</Button>
-                <Button className="bg-dark" variant="outline-info">Sign Up</Button>
-            </Nav>
-            <Form className="inline" style={{display:'flex', marginLeft:"1%"}}>
-                <FormControl type="text" placeholder="Buscar..." style={{marginRight:'2%', border:'2px solid #19A7AE'}} />
-                <Button variant="outline-primary">Buscar</Button>
-            </Form>
-        </Navbar>
+      <Navbar/>
         <div >
             <img src={Portada} width='100%' style={{opacity:""}}></img>
             <div style={{top:'86px', position:'absolute',width:'100%', background:'black',opacity:'50%',height:"90.2%"}}>
