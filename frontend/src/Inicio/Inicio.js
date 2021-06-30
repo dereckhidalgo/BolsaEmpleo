@@ -268,53 +268,35 @@ function Inicio() {
                       <div class="form-group col-md-6">
                       <img width="350" height="350" src={gestorseleccionado && gestorseleccionado.urL_LOGO}/>
                        </div>
+                       <br></br>
 
 
 
 
 
-                      <br></br>
+
 
                 <div class="form-group col-md-6">
+                <center>
 
-                <h2>Compañía:</h2>
+                <h3><strong>{gestorseleccionado && gestorseleccionado.compania}</strong></h3>
+                </center>
                  <br/>
-                 <label>{gestorseleccionado && gestorseleccionado.compania}</label>
+                 <p>{gestorseleccionado && gestorseleccionado.descripcion}</p>
+
 
                  <br/>
 
 
-                      <h4>Tipo</h4>
-
-                      <label>{gestorseleccionado && gestorseleccionado.tipo}</label>
-
-                      <br></br>
-
-                      <h4>Posicion</h4>
-
-                      <label>{gestorseleccionado && gestorseleccionado.posicion}</label>
+                      <p>Nuestra vacante es de tipo {gestorseleccionado && gestorseleccionado.tipo},
+                       buscamos a un  {gestorseleccionado && gestorseleccionado.posicion},
+                      y estamos ubicados en {gestorseleccionado && gestorseleccionado.ubicacion}</p>
 
 
-                      <h4>Categoria</h4>
-
-                      <label>{gestorseleccionado && gestorseleccionado.iD_CATEGORIA_FK}</label>
-
-                      <br></br>
-
-                      <h4>Ubicacion:</h4>
-
-                     <label>{gestorseleccionado && gestorseleccionado.ubicacion}</label>
-
-
-                      <h4>Descripcion:</h4>
-
-                      <label>{gestorseleccionado && gestorseleccionado.descripcion}</label>
-
-                      <br></br>
-
-
-                      <h4>Fecha de Publicacion</h4>
-                      <label>{gestorseleccionado && gestorseleccionado.fechA_PUBLICACION}</label>
+                      <strong>
+                      <p>Categoria: {gestorseleccionado && gestorseleccionado.iD_CATEGORIA_FK}</p>
+                      <p>Publicado el {gestorseleccionado && gestorseleccionado.fechA_PUBLICACION}</p>
+                      </strong>
                   </div>
                       </div>
 
