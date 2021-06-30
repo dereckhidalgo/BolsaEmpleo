@@ -76,7 +76,7 @@ function Inicio() {
         .then(response=>{
           setData(response.data);
         }).catch(error => {
-          console.log(error);   
+          console.log(error);
         })
       }
       const peticionGet= async()=>{
@@ -121,7 +121,7 @@ function Inicio() {
         }
 
     useEffect(()=>{
-        GetVacante(); 
+        GetVacante();
         peticionGet();
         console.log(datos)
       },[])
@@ -132,7 +132,7 @@ function Inicio() {
         <div >
             <img src={Portada} width='100%' style={{opacity:""}}></img>
             <div style={{top:'86px', position:'absolute',width:'100%', background:'black',opacity:'50%',height:"90.2%"}}>
-                
+
             </div>
             <div style={{top:"40%",left:"30%",position:'absolute', color:"white"}}>
                 <h1 style={{color:"white"}}>TU <i style={{color:'#19A7AE'}}>FUTURO</i> EMPIEZA AQUI</h1>
@@ -219,13 +219,13 @@ function Inicio() {
             </tbody>
         </table>
 
-        
+
     <Modal isOpen={modalPostular}>
         <ModalHeader>
         <h3 style={{marginLeft:'42%',fontFamily:'monospace',color:'#19A7AE'}}> Postulate</h3>
 
         </ModalHeader>
-        
+
         <ModalBody>
         <div className="form-group row">
                       <div class="form-group col-md-6">
@@ -259,58 +259,66 @@ function Inicio() {
     <Modal isOpen={modalDetalles} className="modal-lg 3500px">
            <ModalHeader>
                <center>
-                   <h3 style={{marginLeft:'0%',fontFamily:'monospace',color:'#19A7AE'}}> Vacantes HIRED</h3>
+                   <h3 style={{marginLeft:'250%',fontFamily:'monospace',color:'#19A7AE'}}> Detalles </h3>
                </center>
            </ModalHeader>
             <ModalBody>
             <div className="form-group row">
-                  
-                      <div class="form-group col-md-6">
-                     <h2>Compania</h2>
-                      <br/>
-                      <label>{gestorseleccionado && gestorseleccionado.compania}</label>
-                      </div>
 
                       <div class="form-group col-md-6">
-                      <br/>
-                      <img width="150" height="100" src={gestorseleccionado && gestorseleccionado.urL_LOGO}/>
-                      </div>
-                      
+                      <img width="350" height="350" src={gestorseleccionado && gestorseleccionado.urL_LOGO}/>
+                       </div>
+
+
+
+
+
                       <br></br>
-                      <div class="form-group col-md-6">
+
+                <div class="form-group col-md-6">
+
+                <h2>Compañía:</h2>
+                 <br/>
+                 <label>{gestorseleccionado && gestorseleccionado.compania}</label>
+
+                 <br/>
+
+
                       <h4>Tipo</h4>
-                      
+
                       <label>{gestorseleccionado && gestorseleccionado.tipo}</label>
-                      </div>
+
                       <br></br>
-                      <div class="form-group col-md-6">
+
                       <h4>Posicion</h4>
-                      
+
                       <label>{gestorseleccionado && gestorseleccionado.posicion}</label>
-                      </div>
-                      <div class="form-group col-md-6">
+
+
                       <h4>Categoria</h4>
-                      
+
                       <label>{gestorseleccionado && gestorseleccionado.iD_CATEGORIA_FK}</label>
-                      </div>
+
                       <br></br>
-                      <div class="form-group col-md-6">
+
                       <h4>Ubicacion:</h4>
-                      
+
                      <label>{gestorseleccionado && gestorseleccionado.ubicacion}</label>
-                      </div>
-                      <div class="form-group col-md-6">
+
+
                       <h4>Descripcion:</h4>
-                      
+
                       <label>{gestorseleccionado && gestorseleccionado.descripcion}</label>
-                      </div>
+
                       <br></br>
-                    
-                    <div class="form-group col-md-6">
+
+
                       <h4>Fecha de Publicacion</h4>
                       <label>{gestorseleccionado && gestorseleccionado.fechA_PUBLICACION}</label>
+                  </div>
                       </div>
-                      </div>
+
+
             </ModalBody>
 
             <ModalFooter>
