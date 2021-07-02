@@ -49,7 +49,7 @@ export default function Login(props) {
         swal("Datos invalidos!", "Intente otra vez!", "info");
       }
     }).catch(error=>{
-      console.log(error); 
+      console.log(error);
     })
   }
   //------------------------------CONTROLAR ENTRADAS DONDE NO DEBE----------------------------------------
@@ -64,10 +64,10 @@ export default function Login(props) {
   return (
     <div className="todo">
       <nav className="flex">
-        <li>HIRED{"  |"}</li> 
+        <li>HIRED{"  |"}</li>
         <li><Link to="/inicio">Inicio</Link></li>
         <li></li>
-        
+
       </nav>
       <center>
         <div className="container mx-auto px-4 h-full">
@@ -127,13 +127,13 @@ export default function Login(props) {
                       </button>
                     </div>
                   </form>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
         </div>
         </center>
       </div>
-      
+
   );
 }
