@@ -61,7 +61,7 @@ export default function Login(props) {
         swal("Datos invalidos!", "Intente otra vez!", "info");
       }
     }).catch(error=>{
-      console.log(error); 
+      console.log(error);
     })
   }
   //------------------------------CONTROLAR ENTRADAS DONDE NO DEBE----------------------------------------
@@ -102,10 +102,10 @@ const controlModalInsertar=()=>{
   return (
     <div className="todo">
       <nav className="flex">
-        <li>HIRED{"  |"}</li> 
+        <li>HIRED{"  |"}</li>
         <li><Link to="/inicio">Inicio</Link></li>
         <li></li>
-        
+
       </nav>
       <center>
         <div className="container mx-auto px-4 h-full">
@@ -167,7 +167,7 @@ const controlModalInsertar=()=>{
                     <br></br>
                     <p onClick={()=>controlModalInsertar()}>Registrar</p>
                   </form>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
@@ -242,7 +242,5 @@ const controlModalInsertar=()=>{
             </ModalFooter>
     </Modal>
       </div>
-      
-      
   );
 }

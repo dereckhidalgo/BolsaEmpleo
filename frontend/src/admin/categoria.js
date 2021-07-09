@@ -2,6 +2,8 @@ import React , { useState, useEffect}from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
+import swal from 'sweetalert';
+
 
 function ListaCategoria() {
     const URL = "https://localhost:44375/api/Categoria";
@@ -10,6 +12,27 @@ function ListaCategoria() {
     const [modalEditar, setModalEditar]=useState(false);
     const [modalEliminar, setModalEliminar]=useState(false);
 
+    const AlertaRegistrado=()=>{
+        swal({
+            title:"Categoria Registrada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
+    const AlertaEditada=()=>{
+        swal({
+            title:"Categoria Editada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
+    const AlertaEliminado=()=>{
+        swal({
+            title:"Categoria Eliminada!",
+            icon:"success",
+            button:"Aceptar",
+        })
+    }
     const [gestorseleccionado, setGestorseleccionado] = useState({
         id:'',
         nombre:''
@@ -47,6 +70,7 @@ function ListaCategoria() {
         await axios.post(URL, gestorseleccionado)
         .then(response =>{
             setData(data.concat(response.data));
+            AlertaRegistrado();
             controlModalInsertar();
         }).catch(error=>{
             console.log(error)
@@ -64,6 +88,7 @@ function ListaCategoria() {
                 }
 
             })
+            AlertaEditada();
             controlModalEditar();
         }).catch(error=>{
             console.log(error)
@@ -74,6 +99,7 @@ function ListaCategoria() {
         await axios.delete(URL+"/"+gestorseleccionado.id)
         .then(response =>{
            setData(data.filter(gestor=> gestor.id!==response.data));
+           AlertaEliminado();
             controlModalEliminar();
         }).catch(error=>{
             console.log(error)
