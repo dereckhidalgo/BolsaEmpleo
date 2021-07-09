@@ -4,14 +4,26 @@ import '../admin/Login.css';
 import swal from 'sweetalert';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import {Modal, ModalBody,ModalFooter,ModalHeader} from 'reactstrap';
+
 
 
 export default function Login(props) {
   const URL = "https://localhost:44375/api/usuarios";
+
   const cookies = new Cookies();
   const [form, setForm]=useState({
     nombre:'',
-    contra:''
+    contra:'',
+    id:'',
+    apellido:'',
+    fechA_NACIMIENTO:'',
+    direccion:'',
+    numerO_TEL:'',
+    biografia:'',
+    correo:'',
+    url_IMG_PERFIL:'',
+    ID_ROL_FK:'',
   });
 
   const handleChange =e=>{
@@ -60,6 +72,32 @@ export default function Login(props) {
       props.history.push('/login');
     }
   }, [])
+  const [gestorseleccionado, setGestorseleccionado] = useState({
+    
+   
+   
+
+})
+const [data, setData]=useState([]);
+
+const [modalInsertar,setModalInsertar]=useState(false);
+const controlModalInsertar=()=>{
+  setModalInsertar(!modalInsertar)
+ }
+
+
+ const peticionPostt= async()=>{
+  delete form.id
+  form.ID_ROL_FK=3
+  await axios.post(URL, form)
+  .then(response =>{
+      setData(data.concat(response.data));
+      controlModalInsertar();
+  }).catch(error=>{
+      console.log(error)
+  });
+}
+
 
   return (
     <div className="todo">
@@ -126,6 +164,8 @@ export default function Login(props) {
                         Iniciar Sesion
                       </button>
                     </div>
+                    <br></br>
+                    <p onClick={()=>controlModalInsertar()}>Registrar</p>
                   </form>
                 </div>
               </div>
@@ -133,7 +173,74 @@ export default function Login(props) {
           </div>
         </div>
         </center>
-      </div>
+        <Modal isOpen={modalInsertar} className="modal-lg 3500px">
+           <ModalHeader>
+               <center>
+                   <h3 style={{marginLeft:'0%',fontFamily:'monospace',color:'#19A7AE'}}> Agregar usuarios</h3>
+               </center>
+           </ModalHeader>
+            <ModalBody>
+            
+            <div className="form-group row">
+                      <div class="form-group col-md-6">
+                      <label>Nombre</label>
+                      <br/>
+                      <input type="text" className="form-control" name="nombre" onChange={handleChange}/>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label>Apellido</label>
+                      <br/>
+                      <input type="text" className="form-control" name="apellido" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Fecha de Nacimiento</label>
+                      <br/>
+                      <input type="date" className="form-control" name="fechA_NACIMIENTO" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Direccion</label>
+                      <br/>
+                      <input type="text" className="form-control" name="direccion" onChange={handleChange}/>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label>Telefono</label>
+                      <br/>
+                      <input type="text" className="form-control" name="numerO_TEL" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Biografia</label>
+                      <br/>
+                      <textarea className="form-control" name="biografia" onChange={handleChange}></textarea>
+                      </div>
+                      <br></br>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Correo</label>
+                      <br/>
+                      <input type="text" className="form-control" name="correo" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Imagen Perfil</label>
+                      <br/>
+                      <input type="text" className="form-control" name="url_IMG_PERFIL" onChange={handleChange}/>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label>Clave</label>
+                      <br/>
+                      <input type="text" className="form-control" name="contra" onChange={handleChange}/>
+                      </div>  
+                      </div>
+            </ModalBody>
 
+            <ModalFooter>
+              <button className="btn btn-info" onClick={()=>peticionPostt()} >Agregar</button> {""}
+             <button className="btn btn-dark" onClick={()=>controlModalInsertar()}>Cancelar</button>
+            </ModalFooter>
+    </Modal>
+      </div>
   );
 }

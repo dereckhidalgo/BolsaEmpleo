@@ -30,6 +30,8 @@ function Inicio() {
     const [modalEditar,setModalEditar]=useState(false);
     const [modalDetalles, setModalDetalles]=useState(false);
     const [modalPostular, setModalPostular]=useState(false);
+    const [modalver, setModalver]=useState(false);
+
 
     const [gestorseleccionado, setGestorseleccionado] = useState({
         id:'',
@@ -44,7 +46,20 @@ function Inicio() {
         fechA_PUBLICACION:'',
         iD_USUARIO_FK:'',
         iD_VACANTE_FK:'',
-        fechA_POSTULACION:''
+        fechA_POSTULACION:'',
+
+        nombre:'',
+        apellido:'',
+        fechA_NACIMIENTO:'',
+        direccion:'',
+        numerO_TEL:'',
+        biografia:'',
+        correo:'',
+        url_IMG_PERFIL:'',
+        ID_ROL_FK:'',
+
+
+
     })
     const seleccionarGestor=(gestorr,caso)=>{
         setGestorseleccionado(gestorr);
@@ -53,6 +68,13 @@ function Inicio() {
             controlModalDetalles();
         }
     }
+    const controlModalVer=()=>{
+        setModalver(!modalver)
+       }
+    
+    const controlModalInsertar=()=>{
+        setModalInsertar(!modalInsertar)
+       }
     const controlModalDetalles=()=>{
         setModalDetalles(!modalDetalles)
        }
@@ -64,11 +86,17 @@ function Inicio() {
         }
        }
 
-    const ToggleModal =()=>{
-        setModalInsertar(!modalInsertar);
-    }
-    const ToggleModalEditar =()=>{
-        setModalEditar(!modalEditar);
+       const peticionPostt= async()=>{
+        delete gestorseleccionado.id
+        gestorseleccionado.ID_ROL_FK=2
+        gestorseleccionado.ID_ROL_FK=parseInt(gestorseleccionado.ID_ROL_FK);
+        await axios.post(URL3, gestorseleccionado)
+        .then(response =>{
+            setData(data.concat(response.data));
+            controlModalInsertar();
+        }).catch(error=>{
+            console.log(error)
+        });
     }
 
     const GetVacante=async()=>{
@@ -252,6 +280,51 @@ function Inicio() {
       <ModalFooter>
             <button className="btn btn-info" onClick={()=>peticionPost()}>Guardar</button> {""}
              <button className="btn btn-dark" onClick={()=>controlModalPostular()}>Cancelar</button>
+             <button className="btn btn-info" onClick={()=>controlModalVer()}>Ver Usuarios</button> {""}
+             <button className="btn btn-dark"  onClick={()=>controlModalInsertar()}>Crear Usuarios</button>
+      </ModalFooter>
+    </Modal>
+
+    <Modal isOpen={modalver}className="modal-lg 3500px" >
+        <ModalHeader>
+        <h3 style={{marginLeft:'100%',fontFamily:'monospace',color:'#19A7AE'}}> Usuarios Disponibles</h3>
+        </ModalHeader>
+
+        <ModalBody>
+        <div className="create">
+          <br/><center>
+          <table className="table table-bordered" style={{width:"80%"}}>
+            <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> Nombre</th>
+                    <th> Apellido</th>
+                    <th> Direccion</th>
+                    <th> Numero de Telefono</th>
+                    <th> Biografia</th>
+                    <th> Correo</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {datos.map(g=>(
+                   <tr key={g.id}>
+                      <td>{g.id}</td> 
+                      <td>{g.nombre}</td>
+                      <td>{g.apellido}</td>
+                      <td>{g.direccion}</td>
+                      <td>{g.numerO_TEL}</td>
+                      <td>{g.biografia}</td>
+                      <td>{g.correo}</td>
+                   </tr> 
+                ))}
+            </tbody>
+          </table>
+          </center>
+          </div>
+        </ModalBody>
+      <ModalFooter>
+             <button className="btn btn-info"onClick={()=>controlModalVer()}>Volver</button> {""}
       </ModalFooter>
     </Modal>
 
@@ -306,6 +379,71 @@ function Inicio() {
             <ModalFooter>
               <button className="btn btn-info"onClick={()=>controlModalPostular()} >Postular</button> {""}
              <button className="btn btn-dark" onClick={()=>controlModalDetalles()}>Cancelar</button>
+            </ModalFooter>
+    </Modal>
+
+
+    <Modal isOpen={modalInsertar} className="modal-lg 3500px">
+           <ModalHeader>
+               <center>
+                   <h3 style={{marginLeft:'0%',fontFamily:'monospace',color:'#19A7AE'}}> Agregar usuarios</h3>
+               </center>
+           </ModalHeader>
+            <ModalBody>
+            
+            <div className="form-group row">
+                      <div class="form-group col-md-6">
+                      <label>Nombre</label>
+                      <br/>
+                      <input type="text" className="form-control" name="nombre" onChange={handleChange}/>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label>Apellido</label>
+                      <br/>
+                      <input type="text" className="form-control" name="apellido" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Fecha de Nacimiento</label>
+                      <br/>
+                      <input type="date" className="form-control" name="fechA_NACIMIENTO" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Direccion</label>
+                      <br/>
+                      <input type="text" className="form-control" name="direccion" onChange={handleChange}/>
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label>Telefono</label>
+                      <br/>
+                      <input type="text" className="form-control" name="numerO_TEL" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Biografia</label>
+                      <br/>
+                      <textarea className="form-control" name="biografia" onChange={handleChange}></textarea>
+                      </div>
+                      <br></br>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Correo</label>
+                      <br/>
+                      <input type="text" className="form-control" name="correo" onChange={handleChange}/>
+                      </div>
+                      <br></br>
+                      <div class="form-group col-md-6">
+                      <label>Imagen Perfil</label>
+                      <br/>
+                      <input type="text" className="form-control" name="url_IMG_PERFIL" onChange={handleChange}/>
+                      </div>  
+                      </div>
+            </ModalBody>
+
+            <ModalFooter>
+              <button className="btn btn-info" onClick={()=>peticionPostt()} >Agregar</button> {""}
+             <button className="btn btn-dark" onClick={()=>controlModalInsertar()}>Cancelar</button>
             </ModalFooter>
     </Modal>
 
